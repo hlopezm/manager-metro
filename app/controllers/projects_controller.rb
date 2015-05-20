@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
   before_filter :initialize_report
-  before_action :authenticate_admin!, only: [ :new ,:edit, :update, :create, :destroy ] 
+  before_action :authenticate_admin!, only: [ :new ,:edit, :update, :create, :destroy ]
 
   respond_to :html
 
@@ -49,6 +49,6 @@ class ProjectsController < ApplicationController
     end
 
     def project_params
-      params.require(:project).permit(:name, :price, :image, :category_id, :portfolio_id, :executor_id, :unit_id, :target_set, :contract_number, :requested_amount, :start_date, :end_date, :contact, :physical_progress, :financial_progress, :extension, :contract_modification, :delivery_date, :status, :observations, :auth_number, :location)
+      params.require(:project).permit(:name, :price, :image, :category_id, :portfolio_id, :executor_id, :unit_id, :target_set, :contract_number, :requested_amount, :authorized_amount, :economy, :start_date, :end_date, :contact, :physical_progress, :financial_progress, :extension, :contract_modification, :delivery_date, :status, :observations, :auth_number, :location)
     end
 end
