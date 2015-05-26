@@ -45,12 +45,20 @@
                 =f.text_field :economy, prepend: "$", append: ".00", placeholder: "Economía", class: "form-control input-lg"
 
           .row.large-12.columns
-            .form-group.col-md-4
+            .col-md-4
               %label{:for => ""} Executor
               %p#ejecutor.form-control.input-lg=f.select :executor_id, Executor.all.map { |e| [e.name, e.id ] }, class: "form-control"
             .field.col-md-8
               = f.label :Estatus
               = f.text_field :status, placeholder: "Estatus", class: "form-control input-lg"
+
+          .row.large-12.columns
+            .form-group.col-md-4
+              %label{:for => ""} Ejecutora:
+              %select#executor.form-control.input-lg=f.select :executor_id, Executor.all.map { |e| [e.name, e.id ] }, class: "form-control"
+
+
+
 
     .panel.panel-default
       #headingTwo.panel-heading{:role => "tab"}
