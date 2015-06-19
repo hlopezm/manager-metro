@@ -1,4 +1,4 @@
-=form_for @project, multipart: true do |f|
+= form_for(@project, html: { multipart: true}) do |f|
   - if @project.errors.any?
     #error_explanation
       %h2= "#{pluralize(@project.errors.count, "error")} prohibieron guardar este proyecto:"
@@ -106,6 +106,14 @@
 
           .field
             = f.label :imagen
-            = f.file_field :image
+            = f.file_field :image, accept: 'image/jpeg,image/jpg,image/png'
 
     %button.btn.btn-primary{:type => "submit"} Guardar
+
+:javascript
+  $('#project.image').bind('change', function() {
+    size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert('Longitud maxima es de 5MB. Por favor escoge un archivo menor');
+    }
+  });
