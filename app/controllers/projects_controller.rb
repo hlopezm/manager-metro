@@ -33,7 +33,6 @@ class ProjectsController < ApplicationController
      else
        render action: 'new'
     end
-    respond_with @project
   end
 
   def update
