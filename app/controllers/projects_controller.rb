@@ -37,7 +37,7 @@ class ProjectsController < ApplicationController
 
   def update
     @project.update(project_params)
-    respond_with @project
+    respond_with(@project)
   end
 
   def destroy
