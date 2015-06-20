@@ -20,7 +20,6 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
-    respond_with(@project)
   end
 
   def edit
@@ -28,8 +27,13 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-    @project.save
-    respond_with(@project)
+
+    if @project.save
+      redirect_to @project, notice: 'Proyecto creado exitosamente.'
+     else
+       render action: 'new'
+    end
+    respond_with @project
   end
 
   def update
@@ -49,6 +53,6 @@ class ProjectsController < ApplicationController
     end
 
     def project_params
-      params.require(:project).permit(:name, :price, :image, :category_id, :portfolio_id, :executor_id, :unit_id, :target_set, :contract_number, :requested_amount, :authorized_amount, :economy, :start_date, :end_date, :contact, :physical_progress, :financial_progress, :extension, :contract_modification, :delivery_date, :status, :observations, :auth_number, :location)
+      params.require(:project).permit(:name, :price, :image, :image_file_name, :image_content_type, :image_file_size, :image_updated_at, :category_id, :portfolio_id, :executor_id, :unit_id, :target_set, :contract_number, :requested_amount, :authorized_amount, :economy, :start_date, :end_date, :contact, :physical_progress, :financial_progress, :extension, :contract_modification, :delivery_date, :status, :observations, :auth_number, :location)
     end
 end

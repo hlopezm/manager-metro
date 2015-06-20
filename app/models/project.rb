@@ -5,19 +5,14 @@ class Project < ActiveRecord::Base
   belongs_to :executor
   belongs_to :unit
   validates_presence_of :name
-  mount_uploader :image, ImageUploader
-  validate :image_size
-
+  has_attached_file :image, :styles => { :small => "150x150>"},
+                    :url => "/assets/projects/:id/:style/:basename.:extension",
+                    :path => ":rails_root/public/assets/projects/:id/:style/:basename.:extension"
+  validates_attachment_size :image, :less_than => 5.megabytes
+  validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
 
   def total_price
     @items.inject(0) { | sum, item | sum + item.total_price }
-  end
-
-  private
-  def image_size
-    if image.size > 5.megabytes
-      errors.add(:image, "Imagen debe ser menor a 5MB")
-    end
   end
 
 end
