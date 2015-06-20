@@ -38,7 +38,7 @@ class ProjectsController < ApplicationController
 
   def update
     @project.update(project_params)
-    respond_with(@project)
+    respond_with @project
   end
 
   def destroy
@@ -53,6 +53,6 @@ class ProjectsController < ApplicationController
     end
 
     def project_params
-      params.require(:project).permit(:name, :price, :image, :image_file_name, :image_content_type, :image_file_size, :image_updated_at, :category_id, :portfolio_id, :executor_id, :unit_id, :target_set, :contract_number, :requested_amount, :authorized_amount, :economy, :start_date, :end_date, :contact, :physical_progress, :financial_progress, :extension, :contract_modification, :delivery_date, :status, :observations, :auth_number, :location)
+      params.require(:project).permit(:name, :price, :image, :category_id, :portfolio_id, :executor_id, :unit_id, :target_set, :contract_number, :requested_amount, :authorized_amount, :economy, :start_date, :end_date, :contact, :physical_progress, :financial_progress, :extension, :contract_modification, :delivery_date, :status, :observations, :auth_number, :location)
     end
 end
