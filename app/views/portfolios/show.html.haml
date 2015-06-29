@@ -3,6 +3,5 @@
 
 - @projects.each do |name, projects|
   %h2= name
-  - projects.each do |project|
-    = render "projects/table", projects: projects
+  = render "projects/table", projects: projects
 
