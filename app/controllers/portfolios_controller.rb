@@ -1,6 +1,7 @@
 class PortfoliosController < ApplicationController
   before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_admin!, only: [ :new ,:edit, :update, :create, :destroy ] 
+  before_action :authenticate_admin!, only: [ :new ,:edit, :update, :create, :destroy ]
+  helper_method :calcular_total
 
   respond_to :html
 
@@ -10,7 +11,7 @@ class PortfoliosController < ApplicationController
   end
 
   def show
-    @projects = @portfolio.projects
+    @projects = @portfolio.projects.group_by { |project| project.category.name }
   end
 
   def new
@@ -35,6 +36,10 @@ class PortfoliosController < ApplicationController
   def destroy
     @portfolio.destroy
     respond_with(@portfolio)
+  end
+
+  def calcular_total(projects)
+    100
   end
 
   private

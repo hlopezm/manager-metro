@@ -1,4 +1,8 @@
 %h1= @portfolio.name
 
-=render "projects/table", projects: @projects
+
+- @projects.each do |name, projects|
+  %h2= name
+  - projects.each do |project|
+    = render "projects/table", projects: projects
 
