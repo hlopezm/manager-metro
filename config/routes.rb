@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :units
 
   resources :executors
@@ -14,6 +15,10 @@ Rails.application.routes.draw do
   resource :report, only: [ :show ]  do
     post "add", path: "add/:id"
 		get "checkout"
+  end
+
+  namespace :admin do
+    resources :users
   end
 
 	resources :orders, only: [ :index, :show, :create ] 	

@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -31,19 +30,17 @@ ActiveRecord::Schema.define(version: 20150620051453) do
     t.integer  "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+    t.index ["project_id"], name: "index_order_items_on_project_id"
   end
-
-  add_index "order_items", ["order_id"], name: "index_order_items_on_order_id"
-  add_index "order_items", ["project_id"], name: "index_order_items_on_project_id"
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.string   "state",      default: "new"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
-
-  add_index "orders", ["user_id"], name: "index_orders_on_user_id"
 
   create_table "portfolios", force: :cascade do |t|
     t.string   "name"
@@ -82,12 +79,11 @@ ActiveRecord::Schema.define(version: 20150620051453) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.index ["category_id"], name: "index_projects_on_category_id"
+    t.index ["executor_id"], name: "index_projects_on_executor_id"
+    t.index ["portfolio_id"], name: "index_projects_on_portfolio_id"
+    t.index ["unit_id"], name: "index_projects_on_unit_id"
   end
-
-  add_index "projects", ["category_id"], name: "index_projects_on_category_id"
-  add_index "projects", ["executor_id"], name: "index_projects_on_executor_id"
-  add_index "projects", ["portfolio_id"], name: "index_projects_on_portfolio_id"
-  add_index "projects", ["unit_id"], name: "index_projects_on_unit_id"
 
   create_table "units", force: :cascade do |t|
     t.string   "name"
@@ -114,9 +110,8 @@ ActiveRecord::Schema.define(version: 20150620051453) do
     t.string   "name"
     t.datetime "date_of_birth"
     t.boolean  "is_female",              default: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end
