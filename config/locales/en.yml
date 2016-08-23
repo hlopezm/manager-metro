@@ -21,3 +21,7 @@
 
 en:
   hello: "Hello world"
+
+currency:
+      format:
+        strip_insignificant_zeros: false
