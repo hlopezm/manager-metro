@@ -49,8 +49,6 @@
               %label{:for => ""} Instancia Ejecutora:
               %p= f.select :executor_id, Executor.all.map { |e| [e.name, e.id ] }, {}, { class: 'form-control input-lg' }
             .field.col-md-8
-              = f.label :Estatus
-              = f.text_field :status, placeholder: "Estatus", class: "form-control input-lg"
 
 
     .panel.panel-default
@@ -60,11 +58,6 @@
             Info Restante
       #collapseTwo.panel-collapse.collapse{"aria-labelledby" => "headingTwo", :role => "tabpanel"}
         .panel-body
-
-          .form-group
-            .field
-              = f.label :Contacto
-              = f.text_field :contact, placeholder: "Persona de contacto y telefono", class: "form-control input-lg"
 
           .row.large-6.columns
             %form.form-horizontal

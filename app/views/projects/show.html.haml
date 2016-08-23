@@ -37,6 +37,18 @@
   %b Avance Financiero:
   = number_to_percentage @project.financial_progress
 
+%p
+  %b Fecha Inicio:
+  = @project.start_date.strftime("%d-%m-%Y")
+  \ |
+  %b Fecha Fin:
+  = @project.end_date.strftime("%d-%m-%Y")
+
+%p
+  %b Estatus:
+%p
+  %b Observaciones:
+  = @project.observations
 
 -#%p= link_to "agregar a reporte", add_report_path, method: :post,  class: "btn btn-primary"
 
