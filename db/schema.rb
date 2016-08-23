@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160823191940) do
+ActiveRecord::Schema.define(version: 20160823205906) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -76,10 +76,18 @@ ActiveRecord::Schema.define(version: 20160823191940) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.decimal  "millar"
+    t.integer  "status_id",             default: 1
     t.index ["category_id"], name: "index_projects_on_category_id"
     t.index ["executor_id"], name: "index_projects_on_executor_id"
     t.index ["portfolio_id"], name: "index_projects_on_portfolio_id"
+    t.index ["status_id"], name: "index_projects_on_status_id"
     t.index ["unit_id"], name: "index_projects_on_unit_id"
+  end
+
+  create_table "statuses", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "units", force: :cascade do |t|
