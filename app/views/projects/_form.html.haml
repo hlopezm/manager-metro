@@ -50,7 +50,6 @@
               %p= f.select :executor_id, Executor.all.map { |e| [e.name, e.id ] }, {}, { class: 'form-control input-lg' }
             .field.col-md-8
 
-
     .panel.panel-default
       #headingTwo.panel-heading{:role => "tab"}
         %h4.panel-title
@@ -91,6 +90,11 @@
             .field.col-md-6
               =f.label :Financiero
               =f.text_field :financial_progress, placeholder: "Avance Financiero", class: "form-control input-lg"
+
+          .row.large-12.columns
+            .form-group.col-md-2
+              %label{:for => ""} Estatus del Proyecto
+              =f.text_field :status, placeholder: "Estatus", class: "form-control input-lg"
 
           .field.form-group
             = f.label :Observaciones

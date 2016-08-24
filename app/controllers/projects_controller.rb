@@ -52,6 +52,6 @@ class ProjectsController < ApplicationController
     end
 
     def project_params
-      params.require(:project).permit(:name, :price, :image, :category_id, :portfolio_id, :executor_id, :unit_id, :target_set, :contract_number, :authorized_amount, :economy, :start_date, :end_date, :physical_progress, :financial_progress, :extension, :contract_modification, :status, :observations, :auth_number, :location)
+      params.require(:project).permit(:name, :price, :image, :category_id, :portfolio_id, :executor_id, :unit_id, :target_set, :contract_number, :authorized_amount, :economy, :start_date, :end_date, :physical_progress, :financial_progress, :extension, :contract_modification, :status_id, :observations, :auth_number, :location, :paid, :payable, :act, :interest, :shcp_start, :shcp_end)
     end
 end

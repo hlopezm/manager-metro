@@ -39,13 +39,15 @@
 
 %p
   %b Fecha Inicio:
-  = @project.start_date.strftime("%d-%m-%Y")
-  \ |
+  = @project.start_date
+  \
   %b Fecha Fin:
-  = @project.end_date.strftime("%d-%m-%Y")
+  = @project.end_date
 
 %p
   %b Estatus:
+  = @project.status.title
+
 %p
   %b Observaciones:
   = @project.observations

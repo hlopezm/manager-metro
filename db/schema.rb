@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160823205906) do
+ActiveRecord::Schema.define(version: 20160824183758) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -77,6 +77,12 @@ ActiveRecord::Schema.define(version: 20160823205906) do
     t.datetime "image_updated_at"
     t.decimal  "millar"
     t.integer  "status_id",             default: 1
+    t.decimal  "paid"
+    t.decimal  "payable"
+    t.string   "act"
+    t.decimal  "interest"
+    t.datetime "shcp_start"
+    t.datetime "shcp_end"
     t.index ["category_id"], name: "index_projects_on_category_id"
     t.index ["executor_id"], name: "index_projects_on_executor_id"
     t.index ["portfolio_id"], name: "index_projects_on_portfolio_id"
@@ -104,7 +110,7 @@ ActiveRecord::Schema.define(version: 20160823205906) do
     t.datetime "remember_created_at"
     t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
+    t.datetime "last_sign_n_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "address"
