@@ -47,16 +47,22 @@
 
 %p
   %b Pagado:
-  = @project.paid
-
-%p
+  = number_to_currency @project.paid
+  \|
   %b Por pagar:
-  = @project.payable
+  = number_to_currency @project.payable
 
 %p
   %b No. Oficio de Notificación:
   = @project.auth_number
 
+%p
+  %b No. de contrato:
+  = @project.contract_number
+
+%p
+  %b No. Acta de la sesión:
+  = @project.act
 
 %p
   %b Meta Programada:

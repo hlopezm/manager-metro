@@ -82,13 +82,16 @@
         .panel-body
 
           .row.large-12.columns
-            .field.col-md-4
+            .field.col-md-3
               =f.label :'Oficio Notificación'
+              =f.text_field :auth_number, placeholder: "Num. Oficio Notificación", class: "form-control input-lg"
+            .field.col-md-3
+              =f.label :'Número de Contrato'
               =f.text_field :contract_number, placeholder: "Num. Oficio Notificación", class: "form-control input-lg"
-            .field.col-md-4
+            .field.col-md-3
               =f.label :'Acta sesión'
               =f.text_field :act, placeholder: "Num. Acta de Comité", class: "form-control input-lg"
-            .field.col-md-4
+            .field.col-md-3
               =f.label :'Addendum al oficio'
               =f.text_field :contract_modification, placeholder: "Num. Oficio Modificación", class: "form-control input-lg"
 
