@@ -82,18 +82,15 @@
         .panel-body
 
           .row.large-12.columns
-            .field.col-md-3
+            .field.col-md-4
               =f.label :'Oficio Notificación'
-              =f.text_field :auth_number, placeholder: "Num. Oficio Notificación", class: "form-control input-lg"
-            .field.col-md-3
-              =f.label :Contrato
-              =f.text_field :contract_number, placeholder: "Num. Contrato", class: "form-control input-lg"
-            .field.col-md-3
+              =f.text_field :contract_number, placeholder: "Num. Oficio Notificación", class: "form-control input-lg"
+            .field.col-md-4
               =f.label :'Acta sesión'
               =f.text_field :act, placeholder: "Num. Acta de Comité", class: "form-control input-lg"
-            .field.col-md-3
+            .field.col-md-4
               =f.label :'Addendum al oficio'
-              =f.text_field :auth_number, placeholder: "Num. Oficio Notificación", class: "form-control input-lg"
+              =f.text_field :contract_modification, placeholder: "Num. Oficio Modificación", class: "form-control input-lg"
 
           .row.large-6.columns
             .form-group.col-md-2
@@ -117,7 +114,6 @@
             .form-group.col-md-3
               %label{:for => ""} SHCP Fin:
               =f.date_field :shcp_end
-
 
           .field.form-group
             = f.label :Observaciones

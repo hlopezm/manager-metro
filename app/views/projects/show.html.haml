@@ -39,6 +39,13 @@
   = @project.status.title
 
 %p
+  %b Avance Físico:
+  = number_to_percentage @project.physical_progress
+  \ |
+  %b Avance Financiero:
+  = number_to_percentage @project.financial_progress
+
+%p
   %b Pagado:
   = @project.paid
 
@@ -47,20 +54,15 @@
   = @project.payable
 
 %p
-  %b No. Oficio de Autorización:
+  %b No. Oficio de Notificación:
   = @project.auth_number
+
+
 %p
   %b Meta Programada:
   = @project.target_set
   \|
   = @project.unit.name
-
-%p
-  %b Avance Físico:
-  = number_to_percentage @project.physical_progress
-  \ |
-  %b Avance Financiero:
-  = number_to_percentage @project.financial_progress
 
 %p
   %b Fecha Inicio:
@@ -77,8 +79,8 @@
   = @project.shcp_end
 
 %p
-  %b Estatus:
-  = @project.status.title
+  %b Adendum a Oficio de Notificación:
+  = @project.auth_number
 
 %p
   %b Observaciones:
