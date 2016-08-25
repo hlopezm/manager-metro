@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 20160824183758) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.decimal  "millar"
-    t.integer  "status_id",             default: 1
+    t.integer  "status_id",             default: 3
     t.decimal  "paid"
     t.decimal  "payable"
     t.string   "act"
@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(version: 20160824183758) do
     t.datetime "remember_created_at"
     t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
-    t.datetime "last_sign_n_at"
+    t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "address"

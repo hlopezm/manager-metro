@@ -10,16 +10,41 @@
 %p
   %b Ubicación:
   = @project.location
+
+%p
+  %b Ejecutora:
+  = @project.executor.name
+
+%p
+  %b Monto Autorizado:
+  = number_to_currency @project.authorized_amount
+
 %p
   %b Monto Contratado:
   = number_to_currency @project.price
 
 %p
+  %b Economía:
+  = number_to_currency @project.economy
+
+%p
+  %b Intereses:
+  = number_to_currency @project.interest
+
+%p
   = image_tag @project.image.url(:medium)
 
 %p
-  %b Ejecutora:
-  = @project.executor.name
+  %b Estatus:
+  = @project.status.title
+
+%p
+  %b Pagado:
+  = @project.paid
+
+%p
+  %b Por pagar:
+  = @project.payable
 
 %p
   %b No. Oficio de Autorización:
@@ -43,6 +68,13 @@
   \
   %b Fecha Fin:
   = @project.end_date
+
+%p
+  %b SHCP Inicio:
+  = @project.shcp_start
+  \
+  %b SHCP Fin:
+  = @project.shcp_end
 
 %p
   %b Estatus:

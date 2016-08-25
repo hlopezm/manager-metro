@@ -22,33 +22,56 @@
 
           .row.large-12.columns
             %form.form-horizontal
-              .form-group.col-md-4
-                %label{:for => ""} Cartera
+              .form-group.col-md-3
+                %label{:for => ""} Cartera:
                 %p=f.select :portfolio_id, Portfolio.all.map { |p| [p.name, p.id ] }, {}, { class: "form-control input-lg" }
-              .form-group.col-md-4
-                %label{:for => ""} Zona Metropolitana
+              .form-group.col-md-3
+                %label{:for => ""} Zona Metropolitana:
                 %p=f.select :category_id, Category.all.map { |c| [c.name, c.id ] }, {}, { class: "form-control input-lg" }
-              .field.col-md-4
+              .field.col-md-3
                 =f.label :Ubicación
                 =f.text_field :location, placeholder: "Ubicación", class: "form-control input-lg"
+              .field.col-md-3
+                %label{:for => ""} Instancia Ejecutora:
+                %p= f.select :executor_id, Executor.all.map { |e| [e.name, e.id ] }, {}, { class: 'form-control input-lg' }
+
+          .row.large-12.columns
+            %form.form-horizontal
+              .field.col-md-3
+                =f.label :Autorizado
+                =f.text_field :authorized_amount, prepend: "$", append: ".00", placeholder: "Monto Autorizado", class: "form-control input-lg"
+              .field.col-md-3
+                =f.label :Contratado
+                =f.text_field :price, prepend: "$", append: ".00", placeholder: "Monto Contratado", class: "form-control input-lg"
+              .field.col-md-3
+                =f.label :Economía
+                =f.text_field :economy, prepend: "$", append: ".00", placeholder: "Economía", class: "form-control input-lg"
+              .field.col-md-3
+                =f.label :Intereses
+                =f.text_field :interest, prepend: "$", append: ".00", placeholder: "Intereses", class: "form-control input-lg"
 
           .row.large-12.columns
             %form.form-horizontal
               .field.col-md-4
-                =f.label :Contratado
-                =f.text_field :price, prepend: "$", append: ".00", placeholder: "Monto Contratado", class: "form-control input-lg"
+                =f.label :Pagado
+                =f.text_field :paid, prepend: "$", append: ".00", placeholder: "Monto pagado", class: "form-control input-lg"
               .field.col-md-4
-                =f.label :Autorizado
-                =f.text_field :authorized_amount, prepend: "$", append: ".00", placeholder: "Monto Autorizado", class: "form-control input-lg"
+                =f.label :'Por pagar'
+                =f.text_field :payable, prepend: "$", append: ".00", placeholder: "Monto por pagar", class: "form-control input-lg"
               .field.col-md-4
-                =f.label :Economía
-                =f.text_field :economy, prepend: "$", append: ".00", placeholder: "Economía", class: "form-control input-lg"
+                =f.label :'1 al Millar'
+                =f.text_field :payable, prepend: "$", append: ".00", placeholder: "Monto por pagar", class: "form-control input-lg"
 
           .row.large-12.columns
+            .field.col-md-4
+              =f.label :'Avance físico'
+              =f.text_field :physical_progress, placeholder: "Avance Físico", class: "form-control input-lg"
+            .field.col-md-4
+              =f.label :'Avance financiero'
+              =f.text_field :financial_progress, placeholder: "Avance Financiero", class: "form-control input-lg"
             .col-md-4
-              %label{:for => ""} Instancia Ejecutora:
-              %p= f.select :executor_id, Executor.all.map { |e| [e.name, e.id ] }, {}, { class: 'form-control input-lg' }
-            .field.col-md-8
+              %label{:for => ""} Estatus:
+              %p= f.select :status_id, Status.all.map { |s| [s.title, s.id ] }, {}, { class: 'form-control input-lg' }
 
     .panel.panel-default
       #headingTwo.panel-heading{:role => "tab"}
@@ -58,22 +81,19 @@
       #collapseTwo.panel-collapse.collapse{"aria-labelledby" => "headingTwo", :role => "tabpanel"}
         .panel-body
 
-          .row.large-6.columns
-            %form.form-horizontal
-            .form-group.col-md-3
-              %label{:for => ""} Fecha inicio:
-              =f.date_field :start_date
-            .form-group.col-md-3
-              %label{:for => ""} Fecha Fin:
-              =f.date_field :end_date
-
           .row.large-12.columns
-            .field.col-md-6
-              =f.label :Autorización
-              =f.text_field :auth_number, placeholder: "Num. Oficio Autorización", class: "form-control input-lg"
-            .field.col-md-6
+            .field.col-md-3
+              =f.label :'Oficio Notificación'
+              =f.text_field :auth_number, placeholder: "Num. Oficio Notificación", class: "form-control input-lg"
+            .field.col-md-3
               =f.label :Contrato
               =f.text_field :contract_number, placeholder: "Num. Contrato", class: "form-control input-lg"
+            .field.col-md-3
+              =f.label :'Acta sesión'
+              =f.text_field :act, placeholder: "Num. Acta de Comité", class: "form-control input-lg"
+            .field.col-md-3
+              =f.label :'Addendum al oficio'
+              =f.text_field :auth_number, placeholder: "Num. Oficio Notificación", class: "form-control input-lg"
 
           .row.large-6.columns
             .form-group.col-md-2
@@ -84,17 +104,20 @@
               %p=f.select :unit_id, Unit.all.map { |u| [u.name, u.id ] }, {} , { class: "form-control input-lg " }
 
           .row.large-12.columns
-            .field.col-md-6
-              =f.label :Fisico
-              =f.text_field :physical_progress, placeholder: "Avance Físico", class: "form-control input-lg"
-            .field.col-md-6
-              =f.label :Financiero
-              =f.text_field :financial_progress, placeholder: "Avance Financiero", class: "form-control input-lg"
+            %form.form-horizontal
+            .form-group.col-md-3
+              %label{:for => ""} Fecha inicio:
+              =f.date_field :start_date
+            .form-group.col-md-3
+              %label{:for => ""} Fecha Fin:
+              =f.date_field :end_date
+            .form-group.col-md-3
+              %label{:for => ""} SHCP inicio:
+              =f.date_field :shcp_start
+            .form-group.col-md-3
+              %label{:for => ""} SHCP Fin:
+              =f.date_field :shcp_end
 
-          .row.large-12.columns
-            .form-group.col-md-2
-              %label{:for => ""} Estatus del Proyecto
-              =f.text_field :status, placeholder: "Estatus", class: "form-control input-lg"
 
           .field.form-group
             = f.label :Observaciones
