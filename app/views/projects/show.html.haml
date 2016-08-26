@@ -72,17 +72,17 @@
 
 %p
   %b Fecha Inicio:
-  = @project.start_date
+  = @project.start_date.try(:strftime, '%d/%m/%Y')
   \
   %b Fecha Fin:
-  = @project.end_date
+  = @project.end_date.try(:strftime, '%d/%m/%Y')
 
 %p
   %b SHCP Inicio:
-  = @project.shcp_start
+  = @project.shcp_start.try(:strftime, '%d/%m/%Y')
   \
   %b SHCP Fin:
-  = @project.shcp_end
+  = @project.shcp_end.try(:strftime, '%d/%m/%Y')
 
 %p
   %b Adendum a Oficio de Notificación:
