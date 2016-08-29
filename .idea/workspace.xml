@@ -600,7 +600,7 @@
       <workItem from="1471979387698" duration="3115000" />
       <workItem from="1471985774495" duration="1454000" />
       <workItem from="1472056817683" duration="21570000" />
-      <workItem from="1472502315482" duration="1434000" />
+      <workItem from="1472502315482" duration="1465000" />
     </task>
     <task id="LOCAL-00001" summary="upgrading to raiils ruby 2.3.1 - rails 5.0.0.1">
       <created>1471455843755</created>
@@ -630,11 +630,18 @@
       <option name="project" value="LOCAL" />
       <updated>1471984608530</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Adding chartkick">
+      <created>1472504308057</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1472504308057</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37245000" />
+    <option name="totallyTimeSpent" value="37276000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -697,7 +704,8 @@
     <MESSAGE value="fixing paperclip AWS3" />
     <MESSAGE value="adding amount to Show" />
     <MESSAGE value="Updating Show and Edit pages" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updating Show and Edit pages" />
+    <MESSAGE value="Adding chartkick" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding chartkick" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
