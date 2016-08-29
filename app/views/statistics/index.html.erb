@@ -1,0 +1,8 @@
+<h1>Reportes</h1>
+
+<h3>proyectos por Zona Metropolitana</h3>
+<%= pie_chart @projects.group('category').count %>
+
+
+<h3>proyectos por Cartera</h3>
+<%= column_chart @projects.group(:portfolio).count %>

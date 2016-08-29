@@ -22,6 +22,7 @@ gem 'country_select'
 gem 'remotipart', github: 'mshibuya/remotipart'
 gem 'rails_admin', '>= 1.0.0.rc'
 gem 'bcrypt', '~> 3.1.7'
+gem 'chartkick'
 
 group :test do
   gem 'minitest-rails'
