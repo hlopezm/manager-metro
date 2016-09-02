@@ -1,8 +1,27 @@
 <h1>Reportes</h1>
 
-<h3>proyectos por Zona Metropolitana</h3>
-<%= pie_chart @projects.group('category').count %>
+<div class="row">
 
+  <!-- Line Chart - Single Series -->
+  <div class="col-xs-6">
+    <h3>Visits By Day</h3>
+    <%= line_chart @projects.group(:category).count, discrete: true %>
+  </div>
 
-<h3>proyectos por Cartera</h3>
-<%= column_chart @projects.group(:portfolio).count %>
+  <!-- Line Chart - Multiple Series -->
+  <div class="col-xs-6">
+    <h3>Visits By Country Per Day</h3>
+    <%= line_chart   Project.pluck("category_id").uniq.map { |c| { name: c, data: @projects.where(category_id: c).group(:portfolio_id).count }  }, discrete: true %>
+  </div>
+
+</div>
+
+<div class="row">
+
+  <!-- Pie Chart -->
+  <div class="col-xs-6">
+    <h3>Total Visits by Country</h3>
+    <%= pie_chart @projects.group(:category_id).count %>
+  </div>
+
+</div>
